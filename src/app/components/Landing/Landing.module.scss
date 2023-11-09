@@ -1,0 +1,362 @@
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  66% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+
+  66% {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.landingGrid {
+  height: 100dvh;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  width: 100%;
+  padding: var(--padding);
+}
+
+.gridLeft {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.gridLeft {
+  padding-top: 5%;
+  height: 100%;
+  & h1,
+  & h2 {
+    line-height: 8rem;
+    font-weight: 900;
+    font-size: 8rem;
+    width: 100%;
+  }
+}
+
+.gridLeft {
+  & h1 {
+    animation: fadeIn 1s ease-in-out;
+  }
+  & h2 {
+    opacity: 0;
+    &:nth-of-type(1) {
+      animation: fadeIn 1s ease-in-out 2s forwards;
+    }
+    &:nth-of-type(2) {
+      animation: fadeIn 1s ease-in-out 3.8s forwards;
+    }
+  }
+}
+
+.links {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.link {
+  opacity: 0;
+  margin-right: 2rem;
+  animation: fadeIn 2s ease-in-out 4.8s forwards;
+
+  svg {
+    height: 50px;
+    width: 50px;
+    fill: var(--primary-color);
+    transition: all 0.3s ease-in-out;
+  }
+
+  &:hover {
+    svg {
+      fill: var(--secondary-color);
+      transition: all 0.3s ease-in-out;
+    }
+  }
+}
+
+.gridRight {
+  position: relative;
+  width: 100%;
+}
+
+.portfolioPic {
+  opacity: 0;
+  position: absolute;
+  height: 80%;
+  width: auto;
+  bottom: 0;
+  left: 50%;
+  translate: -50% 0;
+  z-index: 2;
+  filter: drop-shadow(2px 2px 8px #000000);
+  animation: fadeInUp 3s ease-in-out 4.8s forwards;
+}
+
+.overviewOuter {
+  opacity: 0;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  bottom: 0;
+  left: 50%;
+  translate: -50% 0;
+  background-color: var(--dark-purple);
+  z-index: 3;
+  box-shadow: 0px 0px 8px 0px #00000063;
+  animation: fadeInUp 2s ease-in-out 5s forwards;
+}
+
+.overviewInner {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 0.5fr 1fr;
+  gap: 4rem;
+  padding: var(--padding);
+  max-width: var(--max-width);
+}
+
+.stats {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.stat {
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  h3 {
+    font-size: 4rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-right: 20px;
+  }
+
+  p {
+    width: 50%;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--secondary-color);
+  }
+}
+
+.tech {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nextLogo,
+.sassLogo {
+  height: 70px;
+  width: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--primary-color);
+  border-radius: 100%;
+
+  svg {
+    height: 50px;
+    width: 50px;
+  }
+}
+
+.tsLogo,
+.jsLogo,
+.reactLogo,
+.cssLogo,
+.tailwindLogo {
+  height: 70px;
+  width: 70px;
+}
+
+@media screen and (max-width: 1180px) {
+  .tsLogo,
+  .jsLogo,
+  .reactLogo,
+  .cssLogo,
+  .tailwindLogo,
+  .nodeLogo {
+    height: 50px;
+    width: 50px;
+  }
+
+  .nextLogo,
+  .sassLogo {
+    height: 50px;
+    width: 50px;
+
+    svg {
+      height: 40px;
+      width: 40px;
+    }
+  }
+
+  .stat {
+    h3 {
+      font-size: 3rem;
+      font-weight: 600;
+      color: var(--primary-color);
+      margin-right: 10px;
+    }
+
+    p {
+      width: 100%;
+      font-size: 1.2rem;
+      line-height: 1rem;
+      font-weight: 600;
+      color: var(--secondary-color);
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .landingGrid {
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.5fr 1fr;
+    gap: 20px;
+  }
+
+  .gridLeft {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    height: 100%;
+    width: 100%;
+    & h1,
+    & h2 {
+      line-height: 4rem;
+      font-weight: 900;
+      font-size: 4rem;
+      width: 100%;
+    }
+  }
+
+  .hello {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+  }
+
+  .links {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: max-content;
+    height: 100%;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .link {
+    opacity: 0;
+    margin-right: 0;
+    margin-bottom: 1rem;
+    animation: fadeIn 2s ease-in-out 4.8s forwards;
+
+    svg {
+      height: 50px;
+      width: 50px;
+      fill: var(--primary-color);
+      transition: all 0.3s ease-in-out;
+    }
+
+    &:hover {
+      svg {
+        fill: var(--secondary-color);
+        transition: all 0.3s ease-in-out;
+      }
+    }
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+
+  .portfolioPic {
+    height: 80%;
+  }
+
+  .overviewInner {
+    gap: 1rem;
+  }
+
+  .stat {
+    h3 {
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--primary-color);
+      margin-right: 10px;
+    }
+
+    p {
+      width: 100%;
+      font-size: 0.8rem;
+      line-height: 1rem;
+      font-weight: 600;
+      color: var(--secondary-color);
+    }
+  }
+
+  .tsLogo,
+  .jsLogo,
+  .reactLogo,
+  .cssLogo,
+  .tailwindLogo,
+  .nodeLogo {
+    height: 25px;
+    width: 25px;
+  }
+
+  .nextLogo,
+  .sassLogo {
+    height: 25px;
+    width: 25px;
+
+    svg {
+      height: 20px;
+      width: 20px;
+    }
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .overviewInner {
+    grid-template-columns: 1fr;
+  }
+}
