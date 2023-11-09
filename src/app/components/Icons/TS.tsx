@@ -1,6 +1,8 @@
 export default function TS(props: { className: string }) {
   return (
     <svg
+      role="img"
+      aria-label="TypeScript Logo"
       className={props.className}
       height="2500"
       viewBox="0 0 640 640"

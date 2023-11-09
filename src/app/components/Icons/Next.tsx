@@ -2,7 +2,7 @@ export default function Next(props: { className: string }) {
   return (
     <div className={props.className}>
       <svg
-        aria-label="Next.js logotype"
+        aria-label="Next.js logo"
         height="18"
         role="img"
         viewBox="0 0 394 79"

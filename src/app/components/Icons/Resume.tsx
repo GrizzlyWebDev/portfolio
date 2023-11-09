@@ -1,6 +1,8 @@
 export default function Resume(props: { className: string }) {
   return (
     <svg
+      role="img"
+      aria-label="resume icon"
       className={props.className}
       xmlns="http://www.w3.org/2000/svg"
       fillRule="evenodd"

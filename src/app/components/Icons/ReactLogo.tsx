@@ -1,6 +1,8 @@
 export default function ReactLogo(props: { className: string }) {
   return (
     <svg
+      role="img"
+      aria-label="React Logo"
       className={props.className}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="-11.5 -10.23174 23 20.46348"

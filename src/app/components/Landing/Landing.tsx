@@ -11,11 +11,11 @@ import SASS from "../Icons/SASS";
 import Tailwind from "../Icons/Tailwind";
 import JS from "../Icons/JS";
 import TS from "../Icons/TS";
-import AnimatedText from "../AnimatedText/AnimatedText";
 import Github from "../Icons/Github";
 import Link from "next/link";
 import LinkedIn from "../Icons/Linkedin";
 import Resume from "../Icons/Resume";
+import NavButton from "../NavButton/NavButton";
 
 export default function Landing() {
   return (
@@ -23,15 +23,24 @@ export default function Landing() {
       <div className={styles.landingGrid}>
         <div className={styles.gridLeft}>
           <div className={styles.hello}>
-            <h1>
-              <AnimatedText text="Hello." delay={0} />
-            </h1>
-            <h2>
-              <AnimatedText text="I am" delay={2000} />
-            </h2>
-            <h2>
-              <AnimatedText text="Phill" delay={3800} />
-            </h2>
+            <NavButton
+              displayText="Hello"
+              delay={0}
+              linkText="About"
+              link="/about"
+            />
+            <NavButton
+              displayText="I am"
+              delay={2000}
+              linkText="Projects"
+              link="/projects"
+            />
+            <NavButton
+              displayText="Phill"
+              delay={3000}
+              linkText="Contact"
+              link="/contact"
+            />
           </div>
           <div className={styles.links}>
             <Link

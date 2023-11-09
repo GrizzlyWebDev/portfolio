@@ -59,5 +59,5 @@ export default function AnimatedText(props: { text: string; delay: number }) {
     return () => clearTimeout(timer);
   }, [animateText, props.delay, props.text.length, increment]);
 
-  return <span>{currentText}</span>;
+  return <h2>{currentText}</h2>;
 }
