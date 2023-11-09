@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback, useRef } from "react";
 
 export default function AnimatedText(props: { text: string; delay: number }) {
   const [currentText, setCurrentText] = useState(props.text);
@@ -9,47 +9,55 @@ export default function AnimatedText(props: { text: string; delay: number }) {
   let increment = 3; // frames per step. Must be >2
 
   let si = 0;
+  const siRef = useRef(si);
   let stri = 0;
+  const striRef = useRef(stri);
   let block = "";
+  const blockRef = useRef(block);
   let fixed = "";
+  const fixedRef = useRef(fixed);
 
-  function nextFrame() {
-    for (var i = 0; i < props.text.length - stri; i++) {
+  const nextFrame = useCallback(() => {
+    for (var i = 0; i < props.text.length - striRef.current; i++) {
       //Random number
       var num = Math.floor(theLetters.length * Math.random());
       //Get random letter
       var letter = theLetters.charAt(num);
-      block = block + letter;
+      blockRef.current = blockRef.current + letter;
     }
-    if (si == increment - 1) {
-      stri++;
+    if (siRef.current == increment - 1) {
+      striRef.current++;
     }
-    if (si == increment) {
+    if (siRef.current == increment) {
       // Add a letter;
       // every speed*10 ms
-      fixed = fixed + props.text.charAt(stri - 1);
-      si = 0;
+      fixedRef.current =
+        fixedRef.current + props.text.charAt(striRef.current - 1);
+      siRef.current = 0;
     }
-    setCurrentText(fixed + block);
-    block = "";
-  }
+    setCurrentText(fixedRef.current + blockRef.current);
+    blockRef.current = "";
+  }, [increment, props.text, theLetters]);
 
-  const animateText = (i: number) => {
-    setTimeout(function () {
-      if (--i) {
-        animateText(i);
-      }
-      nextFrame();
-      si = si + 1;
-    }, speed);
-  };
+  const animateText = useCallback(
+    (i: number) => {
+      setTimeout(function () {
+        if (--i) {
+          animateText(i);
+        }
+        nextFrame();
+        siRef.current = siRef.current + 1;
+      }, speed);
+    },
+    [nextFrame, speed]
+  );
 
   useEffect(() => {
     const timer = setTimeout(() => {
       animateText(props.text.length * increment + 1);
     }, props.delay);
     return () => clearTimeout(timer);
-  }, []);
+  }, [animateText, props.delay, props.text.length, increment]);
 
   return <span>{currentText}</span>;
 }
