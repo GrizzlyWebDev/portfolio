@@ -1,0 +1,69 @@
+@keyframes float {
+  0% {
+    transform: translateX(-70%) scaleX(-1);
+  }
+  100% {
+    transform: translateX(70%) scaleX(-1);
+  }
+}
+
+@keyframes drive {
+  0% {
+    transform: translateX(110%);
+  }
+  100% {
+    transform: translateX(-110%);
+  }
+}
+
+@keyframes fadeUpIn {
+  0% {
+    opacity: 0;
+    transform: translateY(50%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.background {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background-color: var(--secondary-color);
+}
+
+.backdrop,
+.poles {
+  position: absolute;
+  top: 15%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.backdrop {
+  opacity: 0;
+  animation: fadeUpIn 1s ease-in-out forwards;
+}
+
+.poles {
+  opacity: 0;
+  animation: fadeUpIn 1s ease-in-out 0.5s forwards;
+}
+
+.truck {
+  position: absolute;
+  top: 28%;
+  left: 0;
+  width: 80%;
+  height: 80%;
+}
+
+.truck {
+  transform: translateX(-85%);
+  position: absolute;
+  animation: drive 30s linear infinite 1.5s;
+  z-index: 2;
+}

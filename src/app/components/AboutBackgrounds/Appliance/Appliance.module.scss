@@ -1,0 +1,90 @@
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeUpIn {
+  0% {
+    opacity: 0;
+    transform: translateY(50%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes clothesFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(105%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.background {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background-color: var(--secondary-color);
+}
+
+.backdrop,
+.items,
+.washingMachines,
+.clothes {
+  position: absolute;
+  top: 15%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.backdrop {
+  opacity: 0;
+  animation: fadeIn 1s linear forwards;
+}
+
+.items {
+  opacity: 0;
+  animation: fadeUpIn 1s linear forwards;
+}
+
+.washingMachines {
+  position: absolute;
+  top: 40%;
+  left: 10%;
+  width: 60%;
+  height: 60%;
+}
+
+.washingMachines {
+  z-index: 2;
+  animation: fadeUpIn 1s linear forwards;
+}
+
+.clothes {
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: -2%;
+  height: 28%;
+  z-index: 1;
+  animation: clothesFadeIn 1s linear forwards, spin 10s linear 1s infinite;
+}

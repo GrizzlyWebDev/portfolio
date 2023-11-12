@@ -1,3 +1,5 @@
+"use client";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 
 import styles from "./Landing.module.scss";
@@ -18,33 +20,57 @@ import Resume from "../Icons/Resume";
 import NavButton from "../NavButton/NavButton";
 
 export default function Landing() {
+  const [visited, setVisited] = useState(false);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    if (window.localStorage.getItem("visited")) {
+      setVisited(true);
+    } else {
+      setVisited(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      window.localStorage.setItem("visited", "true");
+    }, 7000);
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, []);
+
   return (
     <section>
       <div className={styles.landingGrid}>
         <div className={styles.gridLeft}>
-          <div className={styles.hello}>
+          <nav className={!visited ? styles.hello : styles.helloVisited}>
             <NavButton
+              visited={visited}
               displayText="Hello"
               delay={0}
               linkText="About"
               link="/about"
             />
             <NavButton
+              visited={visited}
               displayText="I am"
               delay={2000}
               linkText="Projects"
               link="/projects"
             />
             <NavButton
+              visited={visited}
               displayText="Phill"
               delay={3000}
               linkText="Contact"
               link="/contact"
             />
-          </div>
+          </nav>
           <div className={styles.links}>
             <Link
-              className={styles.link}
+              className={!visited ? styles.link : styles.linkVisited}
               href="https://github.com/GrizzlyWebDev"
               target="_blank"
               rel="noopener noreferrer"
@@ -52,7 +78,7 @@ export default function Landing() {
               <Github className={styles.githubLogo} />
             </Link>
             <Link
-              className={styles.link}
+              className={!visited ? styles.link : styles.linkVisited}
               href="https://www.linkedin.com/in/phillblakedev/"
               target="_blank"
               rel="noopener noreferrer"
@@ -60,7 +86,7 @@ export default function Landing() {
               <LinkedIn className={styles.linkedinLogo} />
             </Link>
             <Link
-              className={styles.link}
+              className={!visited ? styles.link : styles.linkVisited}
               href="phillBlakeResume.pdf"
               download="phillBlakeResume.pdf"
             >
@@ -71,14 +97,20 @@ export default function Landing() {
 
         <div className={styles.gridRight}>
           <Image
-            className={styles.portfolioPic}
+            className={
+              !visited ? styles.portfolioPic : styles.portfolioPicVisited
+            }
             src={portfolioPic}
             alt="photo of Phill Blake"
           />
           <Ide />
         </div>
       </div>
-      <div className={styles.overviewOuter}>
+      <div
+        className={
+          !visited ? styles.overviewOuter : styles.overviewOuterVisited
+        }
+      >
         <div className={styles.overviewInner}>
           <div className={styles.stats}>
             <div className={styles.stat}>

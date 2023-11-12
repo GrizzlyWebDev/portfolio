@@ -2,11 +2,28 @@
   & a {
     text-decoration: none;
     color: var(--primary-color);
+    height: max-content;
     transition: color 0.3s ease-in-out;
-  }
 
-  & a:hover {
-    color: var(--secondary-color);
-    transition: color 0.3s ease-in-out;
+    & h2 {
+      line-height: 6rem;
+      margin-bottom: 2rem;
+    }
+
+    &:hover {
+      color: var(--secondary-color);
+      transition: color 0.3s ease-in-out;
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .navButtonWrapper {
+    & a {
+      & h2 {
+        line-height: 4rem;
+        margin-bottom: 0rem;
+      }
+    }
   }
 }

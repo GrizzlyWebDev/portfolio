@@ -73,6 +73,24 @@
   }
 }
 
+.helloVisited {
+  & span {
+    width: max-content;
+    &:nth-of-type(1) {
+      opacity: 1;
+      animation: none;
+    }
+    &:nth-of-type(2) {
+      opacity: 1;
+      animation: none;
+    }
+    &:nth-of-type(3) {
+      opacity: 1;
+      animation: none;
+    }
+  }
+}
+
 .links {
   display: flex;
   justify-content: flex-start;
@@ -101,6 +119,26 @@
   }
 }
 
+.linkVisited {
+  margin-right: 2rem;
+
+  svg {
+    height: 50px;
+    width: 50px;
+    fill: var(--primary-color);
+    transition: all 0.3s ease-in-out;
+  }
+
+  &:hover {
+    svg {
+      fill: var(--secondary-color);
+      transition: all 0.3s ease-in-out;
+    }
+  }
+  opacity: 1;
+  animation: none;
+}
+
 .gridRight {
   position: relative;
   width: 100%;
@@ -119,6 +157,19 @@
   animation: fadeInUp 3s ease-in-out 4.8s forwards;
 }
 
+.portfolioPicVisited {
+  position: absolute;
+  height: 80%;
+  width: auto;
+  bottom: 0;
+  left: 50%;
+  translate: -50% 0;
+  z-index: 2;
+  filter: drop-shadow(2px 2px 8px #000000);
+  opacity: 1;
+  animation: none;
+}
+
 .overviewOuter {
   opacity: 0;
   position: absolute;
@@ -133,6 +184,22 @@
   z-index: 3;
   box-shadow: 0px 0px 8px 0px #00000063;
   animation: fadeInUp 2s ease-in-out 5s forwards;
+}
+
+.overviewOuterVisited {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  bottom: 0;
+  left: 50%;
+  translate: -50% 0;
+  background-color: var(--dark-purple);
+  z-index: 3;
+  box-shadow: 0px 0px 8px 0px #00000063;
+  opacity: 1;
+  animation: none;
 }
 
 .overviewInner {
@@ -268,14 +335,16 @@
     }
   }
 
-  .hello {
+  .hello,
+  .helloVisited {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     height: 100%;
   }
 
-  .links {
+  .links,
+  .linksVisited {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -290,6 +359,29 @@
     margin-right: 0;
     margin-bottom: 1rem;
     animation: fadeIn 2s ease-in-out 4.8s forwards;
+
+    svg {
+      height: 50px;
+      width: 50px;
+      fill: var(--primary-color);
+      transition: all 0.3s ease-in-out;
+    }
+
+    &:hover {
+      svg {
+        fill: var(--secondary-color);
+        transition: all 0.3s ease-in-out;
+      }
+    }
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+
+  .linkVisited {
+    margin-right: 0;
+    margin-bottom: 1rem;
 
     svg {
       height: 50px;

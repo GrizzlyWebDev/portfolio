@@ -1,3 +1,213 @@
 .aboutContainer {
-  background-color: aqua;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 100vh;
+  padding: var(--padding);
+}
+
+.gridLeft {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  height: 100%;
+  padding-top: 5%;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  height: max-content;
+  width: 100%;
+}
+
+.gridRight {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  height: 100%;
+  width: 100%;
+  padding-top: 5%;
+}
+
+.navLink {
+  text-decoration: none;
+  color: var(--primary-color);
+  height: max-content;
+  line-height: 8rem;
+  font-weight: 900;
+  font-size: 8rem;
+  transition: color 0.3s ease-in-out;
+
+  line-height: 6rem;
+  margin-bottom: 2rem;
+
+  &:hover {
+    color: var(--secondary-color);
+    transition: color 0.3s ease-in-out;
+  }
+}
+
+.links {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.link {
+  margin-right: 2rem;
+
+  svg {
+    height: 50px;
+    width: 50px;
+    fill: var(--primary-color);
+    transition: all 0.3s ease-in-out;
+  }
+
+  &:hover {
+    svg {
+      fill: var(--secondary-color);
+      transition: all 0.3s ease-in-out;
+    }
+  }
+}
+
+.prevButton,
+.nextButton {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  z-index: 10;
+}
+
+.prevButton {
+  left: 30%;
+}
+
+.nextButton {
+  right: 30%;
+}
+
+.aboutSphereUpper {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  translate: -50% 0;
+  border-radius: 650px 650px 0 0;
+  height: 300px;
+  width: 600px;
+  box-shadow: -2px -2px 30px 2px rgba(0, 0, 0, 0.178);
+  overflow: hidden;
+  z-index: 2;
+}
+
+.aboutSphereLower {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  background-color: var(--purple);
+  border-radius: 100%;
+  height: 600px;
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 8rem;
+  z-index: 1;
+  box-shadow: 2px 2px 30px 2px rgba(0, 0, 0, 0.178);
+}
+
+@media screen and (max-width: 757px) {
+  .aboutContainer {
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.5fr 1fr;
+    gap: 20px;
+  }
+
+  .gridLeft {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    height: 100%;
+    width: 100%;
+
+    & a {
+      line-height: 4rem;
+      font-weight: 900;
+      font-size: 4rem;
+      margin-bottom: 0;
+      width: 100%;
+    }
+  }
+
+  .nav {
+    height: 100%;
+    justify-content: space-between;
+  }
+
+  .links {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: max-content;
+    height: 100%;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .link {
+    margin-right: 0;
+    margin-bottom: 1rem;
+
+    svg {
+      height: 50px;
+      width: 50px;
+      fill: var(--primary-color);
+      transition: all 0.3s ease-in-out;
+    }
+
+    &:hover {
+      svg {
+        fill: var(--secondary-color);
+        transition: all 0.3s ease-in-out;
+      }
+    }
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+
+  .aboutSphereUpper {
+    height: 200px;
+    width: 400px;
+    border-radius: 450px 450px 0 0;
+  }
+
+  .aboutSphereLower {
+    height: 400px;
+    width: 400px;
+    border-radius: 100%;
+    padding: 4rem;
+  }
 }

@@ -6,6 +6,7 @@ import AnimatedText from "../AnimatedText";
 import styles from "./NavButton.module.scss";
 
 type Props = {
+  visited: boolean;
   displayText: string;
   delay: number;
   linkText: string;
@@ -13,6 +14,7 @@ type Props = {
 };
 
 export default function NavButton({
+  visited,
   displayText,
   delay,
   linkText,
@@ -28,7 +30,11 @@ export default function NavButton({
   }, []);
   return (
     <span className={styles.navButtonWrapper}>
-      {change ? (
+      {visited ? (
+        <Link href={link}>
+          <h2>{linkText}</h2>
+        </Link>
+      ) : change ? (
         <Link href={link}>
           <AnimatedText text={linkText} delay={0} />
         </Link>
