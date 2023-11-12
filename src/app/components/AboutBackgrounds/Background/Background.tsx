@@ -1,10 +1,10 @@
 import React from "react";
 
 import Image from "next/image";
-import clouds from "@public/Background/clouds.svg";
-import mountains from "@public/Background/mountains.svg";
-import sun from "@public/Background/sun.svg";
-import trees from "@public/Background/trees.svg";
+import clouds from "@public/background/clouds.svg";
+import mountains from "@public/background/mountains.svg";
+import sun from "@public/background/sun.svg";
+import trees from "@public/background/trees.svg";
 
 import styles from "./Background.module.scss";
 
