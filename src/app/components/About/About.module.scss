@@ -1,3 +1,52 @@
+@keyframes move {
+  0% {
+    transform: translate(-50%, -50%);
+  }
+  100% {
+    transform: translate(-49%, -50%);
+  }
+}
+
+@keyframes bounceRight {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes rotate {
+  0% {
+    border-color: #7e1db6 #7e1db6 #7e1db6 #7e1db6;
+    translate: -50% -50%;
+    transform: rotate(-720deg);
+  }
+
+  25% {
+    border-color: #7e1db6 #7e1db6 transparent #7e1db6;
+    translate: -50% -50%;
+  }
+
+  50% {
+    border-color: #7e1db6 #7e1db6 transparent transparent;
+    translate: -50% -50%;
+  }
+
+  75% {
+    border-color: transparent #7e1db6 transparent transparent;
+    translate: -50% -50%;
+  }
+
+  100% {
+    translate: -50% -50%;
+    transform: rotate(0deg);
+  }
+}
+
 .aboutContainer {
   position: relative;
   height: 100%;
@@ -81,25 +130,27 @@
   }
 }
 
-.prevButton,
 .nextButton {
   position: absolute;
   top: 50%;
-  transform: translateY(-50%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  left: 50%;
+  height: 650px;
+  width: 650px;
   cursor: pointer;
+  background-color: transparent;
+  border-radius: 100%;
+  border-width: 15px;
+  border-color: transparent #7e1db6 transparent transparent;
+  border-style: solid;
   transition: all 0.3s ease-in-out;
-  z-index: 10;
-}
+  z-index: 1;
+  animation: rotate 3s ease, move 2s ease-in-out 3s infinite alternate;
 
-.prevButton {
-  left: 30%;
-}
-
-.nextButton {
-  right: 30%;
+  &:hover {
+    border-color: transparent #9c23e2 transparent transparent;
+    animation-play-state: paused;
+    transition: all 0.3s ease-in-out;
+  }
 }
 
 .aboutSphereUpper {
@@ -110,7 +161,7 @@
   bottom: 50%;
   left: 50%;
   translate: -50% 0;
-  border-radius: 650px 650px 0 0;
+  border-radius: 600px 600px 0 0;
   height: 300px;
   width: 600px;
   box-shadow: -2px -2px 30px 2px rgba(0, 0, 0, 0.178);
@@ -122,25 +173,143 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  translate: -50% -50%;
-  background-color: var(--purple);
-  border-radius: 100%;
-  height: 600px;
+  translate: -50% 0;
+  border-radius: 0 0 600px 600px;
+  height: 300px;
   width: 600px;
+  padding: 1rem 6rem;
+  background-color: var(--purple);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: flex-end;
-  padding: 8rem;
+  justify-content: flex-start;
   z-index: 1;
   box-shadow: 2px 2px 30px 2px rgba(0, 0, 0, 0.178);
+
+  & h2 {
+    font-size: 1.4rem;
+    line-height: 1.8rem;
+    font-weight: 600;
+  }
+
+  & h3 {
+    font-size: 1.2rem;
+    line-height: 1.4rem;
+    font-weight: 200;
+  }
+
+  & h4 {
+    color: var(--secondary-color);
+  }
+
+  & p {
+    font-size: 1rem;
+    line-height: 1.2rem;
+    font-weight: 400;
+  }
+}
+
+.details {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  width: 100%;
+  border-bottom: 1px solid var(--secondary-color);
+  padding-bottom: 0.2rem;
+  margin-bottom: 0.2rem;
+}
+
+.nextButtonMobile {
+  display: none;
+}
+
+@media screen and (min-width: 1600px) {
+  .nextButton {
+    height: 860px;
+    width: 860px;
+  }
+
+  .aboutSphereUpper {
+    height: 400px;
+    width: 800px;
+    border-radius: 650px 650px 0 0;
+  }
+
+  .aboutSphereLower {
+    height: 400px;
+    width: 800px;
+    border-radius: 0 0 650px 650px;
+    top: 50%;
+    left: 50%;
+    translate: -50% 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    & h2 {
+      font-size: 1.8rem;
+      line-height: 1.8rem;
+      font-weight: 600;
+    }
+
+    & h4 {
+      font-size: 1.6rem;
+      line-height: 1.6rem;
+      font-weight: 200;
+    }
+
+    & p {
+      font-size: 1.2rem;
+      line-height: 1.4rem;
+      font-weight: 400;
+    }
+  }
+
+  .details {
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+  }
+}
+
+@media screen and (max-width: 1285px) {
+  .aboutContainer {
+    grid-template-columns: 0.8fr 1fr;
+  }
+
+  .aboutSphereLower {
+    height: 275px;
+    width: 550px;
+    border-radius: 0 0 550px 550px;
+  }
+
+  .aboutSphereUpper {
+    height: 275px;
+    width: 550px;
+    border-radius: 550px 550px 0 0;
+  }
+
+  .nextButton {
+    height: 600px;
+    width: 600px;
+  }
+}
+
+@media screen and (max-width: 1111px) {
+  .aboutContainer {
+    grid-template-columns: 0.5fr 1fr;
+  }
+  .navLink {
+    font-size: 5rem;
+  }
 }
 
 @media screen and (max-width: 757px) {
   .aboutContainer {
-    grid-template-columns: 1fr;
-    grid-template-rows: 0.5fr 1fr;
-    gap: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
   }
 
   .gridLeft {
@@ -148,7 +317,7 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-start;
-    height: 100%;
+    height: 32vh;
     width: 100%;
 
     & a {
@@ -158,6 +327,13 @@
       margin-bottom: 0;
       width: 100%;
     }
+  }
+
+  .gridRight {
+    margin-top: 30px;
+    padding-top: 0;
+    display: flex;
+    justify-content: flex-end;
   }
 
   .nav {
@@ -199,15 +375,99 @@
   }
 
   .aboutSphereUpper {
-    height: 200px;
-    width: 400px;
-    border-radius: 450px 450px 0 0;
+    position: unset;
+    top: 0;
+    left: 0;
+    translate: 0 0;
+    height: 300px;
+    width: 90vw;
+    bottom: 60%;
+    border-radius: 400px 400px 0 0;
   }
 
   .aboutSphereLower {
-    height: 400px;
-    width: 400px;
-    border-radius: 100%;
-    padding: 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-between;
+    position: unset;
+    top: 0;
+    left: 0;
+    translate: 0 0;
+    min-height: 220px;
+    height: max-content;
+    width: 90vw;
+    top: 40%;
+    border-radius: 0 0 20px 20px;
+    padding: 0.5rem 1rem;
+
+    h2 {
+      font-size: 1.2rem;
+      line-height: 1.8rem;
+      font-weight: 600;
+    }
+  }
+  .nextButton {
+    display: none;
+  }
+
+  .nextButtonMobile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background-color: var(--secondary-color);
+    padding: 0.5rem 1rem;
+    width: 100%;
+    margin-top: 10px;
+    border-radius: 10px;
+    border: none;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--primary-color);
+
+    & svg {
+      fill: var(--primary-color);
+      height: 15px;
+      width: 15px;
+      margin-left: 10px;
+      animation: bounceRight 2s ease-in-out infinite;
+    }
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .aboutSphereUpper {
+    position: unset;
+    top: 0;
+    left: 0;
+    translate: 0 0;
+    height: 200px;
+    width: 90vw;
+    bottom: 60%;
+    border-radius: 400px 400px 0 0;
+  }
+
+  .aboutSphereLower {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-between;
+    position: unset;
+    top: 0;
+    left: 0;
+    translate: 0 0;
+    min-height: 220px;
+    height: max-content;
+    width: 90vw;
+    top: 40%;
+    border-radius: 0 0 20px 20px;
+    padding: 0.5rem 1rem;
+
+    h2 {
+      font-size: 1.2rem;
+      line-height: 1.8rem;
+      font-weight: 600;
+    }
   }
 }
