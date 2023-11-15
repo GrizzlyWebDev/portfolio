@@ -11,10 +11,14 @@ import styles from "./Background.module.scss";
 export default function Background() {
   return (
     <div className={styles.background}>
-      <Image className={styles.clouds} src={clouds} alt="background" />
-      <Image className={styles.mountains} src={mountains} alt="background" />
-      <Image className={styles.sun} src={sun} alt="background" />
-      <Image className={styles.trees} src={trees} alt="background" />
+      <Image className={styles.clouds} src={clouds} alt="clouds" />
+      <Image
+        className={styles.mountains}
+        src={mountains}
+        alt="mountains with snowy peaks"
+      />
+      <Image className={styles.sun} src={sun} alt="sun" />
+      <Image className={styles.trees} src={trees} alt="trees" />
     </div>
   );
 }

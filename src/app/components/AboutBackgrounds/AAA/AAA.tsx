@@ -11,10 +11,14 @@ import styles from "./AAA.module.scss";
 export default function AAA() {
   return (
     <div className={styles.background}>
-      <Image className={styles.clouds} src={clouds} alt="background" />
-      <Image className={styles.buildings} src={buildings} alt="background" />
-      <Image className={styles.trees} src={trees} alt="background" />
-      <Image className={styles.truck} src={truck} alt="background" />
+      <Image className={styles.clouds} src={clouds} alt="clouds" />
+      <Image
+        className={styles.buildings}
+        src={buildings}
+        alt="city buildings"
+      />
+      <Image className={styles.trees} src={trees} alt="trees" />
+      <Image className={styles.truck} src={truck} alt="tow truck" />
     </div>
   );
 }

@@ -10,9 +10,13 @@ import styles from "./LineWork.module.scss";
 export default function LineWork() {
   return (
     <div className={styles.background}>
-      <Image className={styles.backdrop} src={backdrop} alt="background" />
-      <Image className={styles.poles} src={poles} alt="background" />
-      <Image className={styles.truck} src={truck} alt="background" />
+      <Image
+        className={styles.backdrop}
+        src={backdrop}
+        alt="clouds and a snowy backdrop with a fence"
+      />
+      <Image className={styles.poles} src={poles} alt="utility poles" />
+      <Image className={styles.truck} src={truck} alt="bucket truck" />
     </div>
   );
 }

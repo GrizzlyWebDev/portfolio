@@ -11,7 +11,11 @@ import styles from "./Dev.module.scss";
 export default function Dev() {
   return (
     <div className={styles.background}>
-      <Image className={styles.backdrop} src={backdrop} alt="background" />
+      <Image
+        className={styles.backdrop}
+        src={backdrop}
+        alt="computer monitor and plant"
+      />
       <Image className={styles.coffee} src={coffee} alt="coffee" />
       <Image className={styles.hands} src={hands} alt="hands" />
       <Image className={styles.popUps} src={popUps} alt="popUps" />
