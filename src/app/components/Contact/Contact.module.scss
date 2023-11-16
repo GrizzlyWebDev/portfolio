@@ -1,0 +1,28 @@
+.contactContainer {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 100vh;
+  padding: var(--padding);
+}
+
+@media screen and (max-width: 1285px) {
+  .contactContainer {
+    grid-template-columns: 0.8fr 1fr;
+  }
+}
+@media screen and (max-width: 1111px) {
+  .contactContainer {
+    grid-template-columns: 0.5fr 1fr;
+  }
+}
+@media screen and (max-width: 757px) {
+  .contactContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
+}

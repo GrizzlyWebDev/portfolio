@@ -6,10 +6,8 @@ import AAA from "../AboutBackgrounds/AAA/AAA";
 import LineWork from "../AboutBackgrounds/LineWork/LineWork";
 import Appliance from "../AboutBackgrounds/Appliance/Appliance";
 import Dev from "../AboutBackgrounds/Dev/Dev";
-import Link from "next/link";
-import Github from "../Icons/Github";
-import LinkedIn from "../Icons/Linkedin";
-import Resume from "../Icons/Resume";
+import SharedNav from "../SharedNav/SharedNav";
+import { usePathname } from "next/navigation";
 
 const background = [
   {
@@ -49,6 +47,7 @@ const background = [
 ];
 
 export default function About() {
+  const pathname = usePathname();
   const [step, setStep] = useState(0);
   const [animate, setAnimate] = useState(false);
 
@@ -67,45 +66,7 @@ export default function About() {
 
   return (
     <section className={styles.aboutContainer}>
-      <div className={styles.gridLeft}>
-        <nav className={styles.nav}>
-          <Link href="/" className={styles.navLink}>
-            Home
-          </Link>
-          <Link href="/projects" className={styles.navLink}>
-            Projects
-          </Link>
-          <Link href="/contact" className={styles.navLink}>
-            Contact
-          </Link>
-        </nav>
-        <div className={styles.links}>
-          <Link
-            className={styles.link}
-            href="https://github.com/GrizzlyWebDev"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Github className={styles.githubLogo} />
-          </Link>
-          <Link
-            className={styles.link}
-            href="https://www.linkedin.com/in/phillblakedev/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <LinkedIn className={styles.linkedinLogo} />
-          </Link>
-          <Link
-            className={styles.link}
-            href="phillBlakeResume.pdf"
-            download="phillBlakeResume.pdf"
-          >
-            <Resume className={styles.resumeLogo} />
-          </Link>
-        </div>
-      </div>
-
+      <SharedNav pathname={pathname} />
       <div className={styles.gridRight}>
         <button className={styles.nextButton} onClick={handleNext}></button>
         <div className={styles.aboutSphereUpper}>
