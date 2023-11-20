@@ -55,7 +55,7 @@ export default function SharedNav({ pathname }: { pathname: string }) {
           <Github className={styles.githubLogo} />
         </Link>
         <Link
-          prefetch
+          prefetch={false}
           className={styles.link}
           href="https://www.linkedin.com/in/phillblakedev/"
           target="_blank"
@@ -64,7 +64,7 @@ export default function SharedNav({ pathname }: { pathname: string }) {
           <LinkedIn className={styles.linkedinLogo} />
         </Link>
         <Link
-          prefetch
+          prefetch={false}
           className={styles.link}
           href="phillBlakeResume.pdf"
           download="phillBlakeResume.pdf"
