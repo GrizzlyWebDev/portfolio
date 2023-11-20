@@ -1,3 +1,61 @@
+@keyframes fadeUpIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+
+  25% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    display: none;
+    opacity: 0;
+  }
+}
+
+@keyframes swipe {
+  25% {
+    transform: translate(-20px) rotate(-35deg);
+  }
+  50% {
+    transform: translate(20px) rotate(25deg);
+  }
+  100% {
+    transform: translate(0px) rotate(0);
+  }
+}
+
+@keyframes swipeDot {
+  12% {
+    visibility: visible;
+    width: 40px;
+  }
+  25% {
+    visibility: visible;
+    transform: translate(-65px);
+    width: 20px;
+  }
+  26% {
+    visibility: hidden;
+  }
+}
+
 .projectsContainer {
   position: relative;
   height: 100%;
@@ -18,10 +76,15 @@
   overflow-x: visible;
   height: 100vh;
   padding: 2rem 0;
+  animation: fadeUpIn 1s ease-in-out forwards;
 
   &::-webkit-scrollbar {
     display: none;
   }
+}
+
+.swipe {
+  display: none;
 }
 
 .project {
@@ -52,6 +115,7 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
+    text-decoration: none;
     padding: 2rem 4rem 2rem 2rem;
     opacity: 0;
     transition: all 0.5s ease-in-out;
@@ -86,7 +150,7 @@
     justify-content: center;
     align-items: center;
     background-color: var(--secondary-color);
-    color: var(--primary-color);
+    color: var(--purple);
     font-size: large;
     line-height: normal;
     font-weight: 600;
@@ -124,23 +188,58 @@
     justify-content: flex-start;
     align-items: center;
     height: 100vh;
-    gap: 1rem;
-    padding: 0 5%;
+    gap: 0.5rem;
+    padding: 0;
   }
 
   .gridRight {
+    opacity: 0;
+    position: relative;
     display: grid;
     justify-content: flex-start;
     align-items: flex-start;
     grid-template-columns: repeat(6, 100%);
-    gap: 1rem;
-    padding: 0 0 1rem 0;
+    gap: 2rem;
+    padding: 1rem 5%;
     overflow-x: scroll;
     overflow-y: hidden;
     scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
     height: 100%;
     width: 100%;
+    animation: fadeUpIn 1s ease-in-out forwards;
+  }
+
+  .swipe {
+    opacity: 0;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    top: 90%;
+    left: 0;
+    translate: 0 -90%;
+    animation: appear 6s linear 1s forwards;
+
+    & .path {
+      width: 20px;
+      height: 20px;
+      position: absolute;
+      background: rgba(149, 147, 241, 0.5);
+      border-radius: 40px;
+      top: 0;
+      left: 50%;
+      translate: -50% 0;
+      visibility: hidden;
+      animation: swipeDot 2s infinite linear 1s forwards;
+    }
+
+    & svg {
+      fill: var(--primary-color);
+      height: 75px;
+      animation: swipe 2s infinite linear 1s forwards;
+    }
+    z-index: 2;
   }
 
   .project {
@@ -149,13 +248,12 @@
     padding: 1rem;
     height: 100%;
     margin: 0;
-    text-decoration: none;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
     box-shadow: none;
-    scroll-snap-align: start;
+    scroll-snap-align: center;
 
     &:hover {
       transform: none;
@@ -181,7 +279,8 @@
       flex-direction: column;
       justify-content: flex-start;
       align-items: flex-start;
-      padding: 0rem 0 0 0;
+      text-decoration: none;
+      padding: 1rem 0 0 0;
       opacity: 1;
       z-index: 1;
 
@@ -192,7 +291,7 @@
       }
 
       & p {
-        font-size: 1rem;
+        font-size: 0.8rem;
         line-height: 1rem;
         font-weight: 600;
         color: var(--primary-color);
@@ -209,7 +308,7 @@
       justify-content: center;
       align-items: center;
       background-color: var(--secondary-color);
-      color: var(--primary-color);
+      color: var(--purple);
       font-size: small;
       line-height: normal;
       font-weight: 600;
@@ -227,10 +326,10 @@
     align-items: center;
     text-decoration: none;
     background-color: var(--secondary-color);
-    color: var(--primary-color);
+    color: var(--purple);
     font-size: large;
     font-weight: 600;
-    padding: 0.5rem;
+    padding: 0.2rem 0.5rem;
     width: 100%;
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
