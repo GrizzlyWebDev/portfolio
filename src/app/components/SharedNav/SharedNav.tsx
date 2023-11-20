@@ -32,7 +32,12 @@ export default function SharedNav({ pathname }: { pathname: string }) {
         {links.map((link) => {
           if (pathname !== link.href.toLowerCase()) {
             return (
-              <Link className={styles.navLink} href={link.href} key={link.name}>
+              <Link
+                prefetch={false}
+                className={styles.navLink}
+                href={link.href}
+                key={link.name}
+              >
                 {link.name}
               </Link>
             );
@@ -41,6 +46,7 @@ export default function SharedNav({ pathname }: { pathname: string }) {
       </nav>
       <div className={styles.links}>
         <Link
+          prefetch={false}
           className={styles.link}
           href="https://github.com/GrizzlyWebDev"
           target="_blank"
@@ -49,6 +55,7 @@ export default function SharedNav({ pathname }: { pathname: string }) {
           <Github className={styles.githubLogo} />
         </Link>
         <Link
+          prefetch
           className={styles.link}
           href="https://www.linkedin.com/in/phillblakedev/"
           target="_blank"
@@ -57,6 +64,7 @@ export default function SharedNav({ pathname }: { pathname: string }) {
           <LinkedIn className={styles.linkedinLogo} />
         </Link>
         <Link
+          prefetch
           className={styles.link}
           href="phillBlakeResume.pdf"
           download="phillBlakeResume.pdf"

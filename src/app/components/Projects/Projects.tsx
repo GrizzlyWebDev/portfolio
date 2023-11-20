@@ -83,6 +83,7 @@ export default function Projects() {
               alt={project.title}
             />
             <Link
+              prefetch={false}
               href={project.link}
               target="_blank"
               rel="noopener noreferrer"
@@ -98,6 +99,7 @@ export default function Projects() {
               </div>
             </Link>
             <Link
+              prefetch={false}
               className={styles.link}
               href={project.link}
               target="_blank"

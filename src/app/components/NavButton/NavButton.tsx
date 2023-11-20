@@ -31,11 +31,11 @@ export default function NavButton({
   return (
     <span className={styles.navButtonWrapper}>
       {visited ? (
-        <Link href={link}>
+        <Link prefetch={false} href={link}>
           <h2>{linkText}</h2>
         </Link>
       ) : change ? (
-        <Link href={link}>
+        <Link prefetch={false} href={link}>
           <AnimatedText text={linkText} delay={0} />
         </Link>
       ) : (

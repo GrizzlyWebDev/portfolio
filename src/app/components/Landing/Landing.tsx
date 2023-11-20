@@ -70,6 +70,7 @@ export default function Landing() {
           </nav>
           <div className={styles.links}>
             <Link
+              prefetch={false}
               className={!visited ? styles.link : styles.linkVisited}
               href="https://github.com/GrizzlyWebDev"
               target="_blank"
@@ -78,6 +79,7 @@ export default function Landing() {
               <Github className={styles.githubLogo} />
             </Link>
             <Link
+              prefetch={false}
               className={!visited ? styles.link : styles.linkVisited}
               href="https://www.linkedin.com/in/phillblakedev/"
               target="_blank"
@@ -86,6 +88,7 @@ export default function Landing() {
               <LinkedIn className={styles.linkedinLogo} />
             </Link>
             <Link
+              prefetch={false}
               className={!visited ? styles.link : styles.linkVisited}
               href="phillBlakeResume.pdf"
               download="phillBlakeResume.pdf"
