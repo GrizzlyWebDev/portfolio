@@ -7,7 +7,7 @@
 
     & h2 {
       line-height: 6rem;
-      margin-bottom: 2rem;
+      margin-bottom: 3rem;
     }
 
     &:hover {
@@ -23,6 +23,9 @@
       & h2 {
         line-height: 4rem;
         margin-bottom: 0rem;
+      }
+      &:hover {
+        color: var(--primary-color);
       }
     }
   }

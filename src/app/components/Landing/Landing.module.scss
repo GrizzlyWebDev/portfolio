@@ -64,11 +64,11 @@
     }
     &:nth-of-type(2) {
       opacity: 0;
-      animation: fadeIn 1s ease-in-out 2s forwards;
+      animation: fadeIn 1s ease-in-out 1.5s forwards;
     }
     &:nth-of-type(3) {
       opacity: 0;
-      animation: fadeIn 1s ease-in-out 3.8s forwards;
+      animation: fadeIn 1s ease-in-out 3s forwards;
     }
   }
 }
@@ -96,13 +96,13 @@
   justify-content: flex-start;
   width: 100%;
   align-items: center;
-  margin-top: 2rem;
+  margin-top: 10px;
 }
 
 .link {
   opacity: 0;
   margin-right: 2rem;
-  animation: fadeIn 2s ease-in-out 4.8s forwards;
+  animation: fadeIn 2s ease-in-out 4s forwards;
 
   svg {
     height: 50px;
@@ -408,6 +408,7 @@
 
   .overviewInner {
     gap: 1rem;
+    padding: 0 0.5rem;
   }
 
   .stat {
