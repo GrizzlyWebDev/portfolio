@@ -1,0 +1,129 @@
+@keyframes fadeUpIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes numFloat {
+  0% {
+    transform: translateY(6px);
+  }
+
+  50% {
+    transform: translateY(-6px);
+  }
+
+  100% {
+    transform: translateY(6px);
+  }
+}
+
+@keyframes planetFloat {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(5px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes dogFloat {
+  0% {
+    transform: translateY(0);
+    rotate: 0deg;
+  }
+
+  50% {
+    transform: translateY(5px);
+    rotate: 2deg;
+  }
+
+  100% {
+    transform: translateY(0);
+    rotate: 0deg;
+  }
+}
+
+.notFoundContainer {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 100vh;
+  padding: var(--padding);
+}
+.gridRight {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding-top: 5%;
+  animation: fadeUpIn 1s ease-in-out forwards;
+
+  & img {
+    position: absolute;
+    width: 100%;
+    height: auto;
+
+    // planet
+    &:nth-of-type(1) {
+      animation: planetFloat 6s ease-in-out infinite;
+    }
+    // first num
+    &:nth-of-type(3) {
+      transform: translateY(6px);
+      animation: numFloat 6s ease-in-out infinite;
+    }
+    // second num
+    &:nth-of-type(4) {
+      transform: translateY(6px);
+      animation: numFloat 6s ease-in-out infinite;
+    }
+    // dog
+    &:nth-of-type(5) {
+      animation: dogFloat 4s ease-in-out infinite;
+    }
+  }
+}
+
+@media screen and (max-width: 1285px) {
+  .notFoundContainer {
+    grid-template-columns: 1fr 1fr;
+  }
+  .gridRight {
+    padding: 10% 0 0 0;
+  }
+}
+
+@media screen and (max-width: 757px) {
+  .notFoundContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0;
+  }
+
+  .gridRight {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 62vh;
+    width: 100%;
+    padding: 10% 0 0 0;
+  }
+}

@@ -8,14 +8,13 @@ const USER_ID = process.env.NEXT_USER_ID;
 type message = {
   name: string;
   company: string;
-  from: string;
+  email: string;
   text: string;
 };
 
 export async function sendTelegram(message: message) {
-  let text = `*New Message From Portfolio!*\n*Name: ${message.name}*\n*Company: ${message.company}*\n*Email: ${message.from}*\n*Message: ${message.text}*`;
+  let text = `*New Message From Portfolio!*\n*Name: ${message.name}*\n*Company: ${message.company}*\n*Email: ${message.email}*\n*Message: ${message.text}*`;
   text = text.replace(/[$^!.+?{}()[\]\\|]/g, (match) => `\\${match}`);
-  console.log(text);
   try {
     const res = await fetch(
       `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`,

@@ -17,6 +17,18 @@
   }
 }
 
+@keyframes fadeUpIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .contactContainer {
   position: relative;
   height: 100%;
@@ -30,8 +42,10 @@
 .gridRight {
   display: flex;
   flex-direction: column;
+  align-items: flex-end;
   height: 100%;
   padding-top: 5%;
+  animation: fadeUpIn 1s ease-in-out forwards;
 
   form {
     display: flex;
@@ -47,12 +61,21 @@
 
     label {
       font-size: 1.2rem;
+      line-height: 1.2rem;
       font-weight: 600;
       color: var(--secondary-color);
     }
 
     & .required {
-      color: #fccf03;
+      font-size: 0.8rem;
+      line-height: 0.8rem;
+      color: var(--secondary-color);
+    }
+
+    & .inlineError {
+      font-size: 0.8rem;
+      line-height: 0.8rem;
+      color: var(--red);
     }
 
     & input,
@@ -78,6 +101,14 @@
       }
     }
 
+    .errorInput {
+      outline: 2px solid var(--red);
+
+      &:focus {
+        outline: 2px solid var(--red);
+      }
+    }
+
     & textarea {
       max-width: 100%;
       max-height: 180px;
@@ -94,9 +125,9 @@
 .labelContainer {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-end;
   width: 100%;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 
 .submit {
@@ -148,6 +179,7 @@
   justify-content: flex-start;
   align-items: center;
   width: 100%;
+  max-width: 600px;
   border-radius: 10px;
   padding: 10px 30px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
@@ -174,14 +206,13 @@
 
 @media screen and (max-width: 1285px) {
   .contactContainer {
-    grid-template-columns: 0.8fr 1fr;
+    grid-template-columns: 1fr 1fr;
+  }
+  .gridRight {
+    padding: 10% 0 0 0;
   }
 }
-@media screen and (max-width: 1111px) {
-  .contactContainer {
-    grid-template-columns: 0.5fr 1fr;
-  }
-}
+
 @media screen and (max-width: 757px) {
   .contactContainer {
     display: flex;
@@ -189,5 +220,54 @@
     justify-content: flex-start;
     align-items: center;
     padding: 0;
+  }
+
+  .gridRight {
+    width: 100%;
+    padding: 10% 5% 0 5%;
+
+    form {
+      height: 60vh;
+      width: 100%;
+      padding: 1rem 1rem 0.5rem 1rem;
+
+      & label {
+        font-size: 0.9rem;
+        line-height: 0.9rem;
+      }
+
+      & input,
+      textarea {
+        min-width: 100%;
+        width: 100%;
+        height: max-content;
+        border-radius: 10px;
+        background-color: var(--dark-purple);
+        color: var(--primary-color);
+        border: none;
+        outline: none;
+        padding: 10px;
+        margin-bottom: 10px;
+        font-size: 1rem;
+        font-weight: 600;
+        box-shadow: 0 0 4px rgba(0, 0, 0, 0.37);
+        transition: box-shadow 0.3s ease-in-out;
+
+        &:focus {
+          box-shadow: none;
+          outline: 2px solid var(--secondary-color);
+        }
+      }
+    }
+  }
+
+  .submit {
+    height: max-content;
+    padding: 10px;
+  }
+
+  .inlineError {
+    font-size: 0.8rem;
+    line-height: 0.8rem;
   }
 }

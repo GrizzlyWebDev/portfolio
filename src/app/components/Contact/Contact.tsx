@@ -10,20 +10,25 @@ import LoadingSpinner from "../Icons/LoadingSpinner";
 type message = {
   name: string;
   company: string;
-  from: string;
+  email: string;
   text: string;
 };
 
 type error = {
   name: string;
   company: string;
-  from: string;
+  email: string;
   text: string;
 };
 
 export default function Contact() {
   const pathname = usePathname();
-  const [message, setMessage] = useState({} as message);
+  const [message, setMessage] = useState({
+    name: "",
+    company: "",
+    email: "",
+    text: "",
+  } as message);
   const [messageError, setMessageError] = useState({} as error);
   const [messageSent, setMessageSent] = useState(false);
   const [messageFailed, setMessageFailed] = useState(false);
@@ -32,77 +37,84 @@ export default function Contact() {
   const handleChange = (
     event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
-    switch (event.target.name) {
-      case "name":
-        switch (event.target.value) {
-          case "":
-            setMessageError({ ...messageError, name: "Name cannot be empty" });
-            break;
-          default:
-            setMessageError({ ...messageError, name: "" });
-            break;
-        }
-        break;
-      case "Company":
-        switch (event.target.value) {
-          case "":
-            setMessageError({
-              ...messageError,
-              company: "Company cannot be empty",
-            });
-            break;
-          default:
-            setMessageError({ ...messageError, company: "" });
-            break;
-        }
-        break;
-      case "email":
-        switch (event.target.value) {
-          case "":
-            setMessageError({ ...messageError, from: "Email cannot be empty" });
-            break;
-          default:
-            setMessageError({ ...messageError, from: "" });
-            break;
-        }
-        setMessage({ ...message, from: event.target.value });
-        break;
-      case "message":
-        switch (event.target.value) {
-          case "":
-            setMessageError({
-              ...messageError,
-              text: "Message cannot be empty",
-            });
-            break;
-          default:
-            setMessageError({ ...messageError, text: "" });
-            break;
-        }
-        setMessage({ ...message, text: event.target.value });
-        break;
+    let key = event.target.name;
+    let value: string = event.target.value;
+
+    // name validation //
+
+    if (key === "name" && value.length >= 51) {
+      setMessageError({
+        ...messageError,
+        name: "Name cannot be more than 50 chars.",
+      });
+      return;
+    } else if (key === "name" && value.length < 3) {
+      setMessageError({
+        ...messageError,
+        name: "Name cannot be less than 3 chars.",
+      });
+    } else if (key === "name" && value.length <= 50) {
+      setMessageError({ ...messageError, name: "" });
     }
-    setMessage({ ...message, [event.target.name]: event.target.value });
+    // company validation //
+
+    if (key === "company" && value.length >= 50) {
+      setMessageError({
+        ...messageError,
+        company: "Company name cannot be more than 50 chars.",
+      });
+      return;
+    } else if (key === "company") {
+      setMessageError({ ...messageError, company: "" });
+    }
+
+    // email validation //
+    if (key === "email" && value.length >= 90) {
+      setMessageError({
+        ...messageError,
+        email: "Email cannot be more than 90 chars.",
+      });
+      return;
+    } else if (
+      key === "email" &&
+      !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value) &&
+      value.length > 0
+    ) {
+      setMessageError({
+        ...messageError,
+        email: "Email must be a valid email address.",
+      });
+    } else if (key === "email" && value.length === 0) {
+      setMessageError({ ...messageError, email: "Email is required." });
+    } else if (key === "email") {
+      setMessageError({ ...messageError, email: "" });
+    }
+
+    // message validation //
+
+    if (key === "text" && value.length >= 500) {
+      setMessageError({
+        ...messageError,
+        text: "Message cannot be more than 500 chars.",
+      });
+      return;
+    } else if (key === "text" && value.length < 10) {
+      setMessageError({
+        ...messageError,
+        text: "Message cannot be less than 10 chars.",
+      });
+    } else if (key === "text") {
+      setMessageError({ ...messageError, text: "" });
+    }
+
+    setMessage({ ...message, [key]: value });
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     setMessageLoading(true);
     e.preventDefault();
-    const formData = new FormData(e.currentTarget);
 
-    if (
-      !formData.get("name") ||
-      !formData.get("email") ||
-      !formData.get("message")
-    )
-      return;
-
-    const message: message = {
-      name: formData.get("name") as string,
-      company: formData.get("Company") as string,
-      from: formData.get("email") as string,
-      text: formData.get("message") as string,
-    };
+    if (!message || !message.name || !message.email || !message.text) return;
 
     let res = await sendTelegram(message);
     if (res.ok) {
@@ -116,6 +128,21 @@ export default function Contact() {
         setMessageFailed(false);
       }, 2000);
     }
+
+    setMessage({
+      name: "",
+      company: "",
+      email: "",
+      text: "",
+    });
+
+    setMessageError({
+      name: "",
+      company: "",
+      email: "",
+      text: "",
+    });
+
     setMessageLoading(false);
   };
 
@@ -160,24 +187,79 @@ export default function Contact() {
               {messageError.name ? messageError.name : "Required"}
             </p>
           </div>
-          <input onChange={handleChange} type="text" name="name" id="name" />
-          <label htmlFor="Company">Company</label>
           <input
+            className={messageError.name ? styles.errorInput : ""}
+            required
             onChange={handleChange}
             type="text"
-            name="Company"
-            id="Company"
+            name="name"
+            id="name"
+            value={message.name}
           />
-          <label htmlFor="email">Email</label>
-          <input onChange={handleChange} type="email" name="email" id="email" />
-          <label htmlFor="message">Message</label>
-          <textarea onChange={handleChange} name="message" id="message" />
+          <div className={styles.labelContainer}>
+            <label htmlFor="company">Company</label>
+            <p
+              className={
+                messageError.company ? styles.inlineError : styles.required
+              }
+            >
+              {messageError.company ? messageError.company : "Optional"}
+            </p>
+          </div>
+          <input
+            className={messageError.company ? styles.errorInput : ""}
+            onChange={handleChange}
+            type="text"
+            name="company"
+            id="company"
+            value={message.company}
+          />
+          <div className={styles.labelContainer}>
+            <label htmlFor="email">Email</label>
+            <p
+              className={
+                messageError.email ? styles.inlineError : styles.required
+              }
+            >
+              {messageError.email ? messageError.email : "Required"}
+            </p>
+          </div>
+          <input
+            className={messageError.email ? styles.errorInput : ""}
+            required
+            onChange={handleChange}
+            type="email"
+            name="email"
+            id="email"
+            value={message.email}
+          />
+          <div className={styles.labelContainer}>
+            <label htmlFor="text">Message</label>
+            <p
+              className={
+                messageError.text ? styles.inlineError : styles.required
+              }
+            >
+              {messageError.text ? messageError.text : "Required"}
+            </p>
+          </div>
+          <textarea
+            className={messageError.text ? styles.errorInput : ""}
+            required
+            onChange={handleChange}
+            name="text"
+            id="text"
+            value={message.text}
+          />
           <button
             className={styles.submit}
             disabled={
               messageLoading ||
+              message?.name?.length === 0 ||
+              message?.email?.length === 0 ||
+              message?.text?.length === 0 ||
               messageError?.name?.length > 0 ||
-              messageError?.from?.length > 0 ||
+              messageError?.email?.length > 0 ||
               messageError?.text?.length > 0 ||
               messageError?.company?.length > 0
             }
