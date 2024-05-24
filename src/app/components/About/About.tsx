@@ -8,6 +8,7 @@ import Appliance from "../AboutBackgrounds/Appliance/Appliance";
 import Dev from "../AboutBackgrounds/Dev/Dev";
 import SharedNav from "../SharedNav/SharedNav";
 import { usePathname } from "next/navigation";
+import Swapsicle from "../AboutBackgrounds/Swapsicle/Swapsicle";
 
 const background = [
   {
@@ -43,6 +44,13 @@ const background = [
     description:
       "As a freelance Frontend and Blockchain Developer, I fused creativity in crafting user interfaces with expertise in blockchain technology. I navigated dynamic landscapes, honing technical prowess to deliver tailored solutions in web and decentralized systems.",
     component: <Dev />,
+  },
+  {
+    title: "Software Engineer",
+    years: "2023 - Present",
+    description:
+      "Driving innovation as a Frontend Developer at Swapsicle, where I specialize in building dynamic user interfaces for our cutting-edge cryptocurrency exchange platform.",
+    component: <Swapsicle />,
   },
 ];
 

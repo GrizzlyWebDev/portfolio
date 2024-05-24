@@ -9,10 +9,27 @@ import quirkncodonuts from "@public/Projects/Quirknco.png";
 import metaExpo from "@public/Projects/MetaverseExpo.png";
 import rev3al from "@public/Projects/REV3AL.png";
 import drivenX from "@public/Projects/drivenX.png";
+import nitro from "@public/Projects/nitrodome.jpg"
 import Image from "next/image";
 import Link from "next/link";
 
 const projects = [
+  {
+    title: "Swapsicle",
+    img: swapsicle,
+    description:
+      "A website for a large cryptocurrency exchange across multiple blockchains. I worked on many features and bug fixes for the site, including the launchpad, bridge, and Earn pages.",
+    tools: ["next.js", "Typescript", "Tailwind", "Jira", "Github"],
+    link: "https://app.swapsicle.io/launchpad?status=finished",
+  },
+  {
+    title: "Nirodome Landing Page",
+    img: nitro,
+    description:
+      "A home page for an NFT gaming startup for investors to learn more about the project and the team behind it.",
+    tools: ["react.js", "JavaScript", "SCSS"],
+    link: "https://nitrodome.com/",
+  },
   {
     title: "Quirkies Home Page",
     img: quirkies,
@@ -20,14 +37,6 @@ const projects = [
       "A home page for a large NFT project that boasts 4 collections, an Ecommerce brand, and staking capabilities.",
     tools: ["next.js", "TypeScript", "SCSS"],
     link: "https://quirkies.io",
-  },
-  {
-    title: "Swapsicle Launch Page",
-    img: swapsicle,
-    description:
-      "A page for a large exchange that started on Avalanche network. This page allows users to launch their own token on the platform.",
-    tools: ["next.js", "Typescript", "Tailwind"],
-    link: "https://app.swapsicle.io/launchpad?status=finished",
   },
   {
     title: "Quirk n' Co. Donuts",
