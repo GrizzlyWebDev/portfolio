@@ -6,7 +6,7 @@ import coffee from "@public/Swapsicle/coffee.svg";
 import hands from "@public/Swapsicle/hands.svg";
 import popUps from "@public/Swapsicle/popUps.svg";
 
-import styles from "./swapsicle.module.scss";
+import styles from "./Swapsicle.module.scss";
 
 export default function Swapsicle() {
   return (
