@@ -124,6 +124,7 @@ export default function Contact() {
       }, 2000);
     } else {
       setMessageFailed(true);
+      console.log(res)
       setTimeout(() => {
         setMessageFailed(false);
       }, 2000);

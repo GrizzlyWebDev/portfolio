@@ -90,8 +90,8 @@ export default function Landing() {
             <Link
               prefetch={false}
               className={!visited ? styles.link : styles.linkVisited}
-              href="phillBlakeResume.pdf"
-              download="phillBlakeResume.pdf"
+              href="phill-blake-resume.pdf"
+              download="phill-blake-resume.pdf"
             >
               <Resume className={styles.resumeLogo} />
             </Link>

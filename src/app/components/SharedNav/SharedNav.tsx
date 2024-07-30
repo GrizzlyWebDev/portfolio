@@ -66,8 +66,8 @@ export default function SharedNav({ pathname }: { pathname: string }) {
         <Link
           prefetch={false}
           className={styles.link}
-          href="phillBlakeResume.pdf"
-          download="phillBlakeResume.pdf"
+          href="phill-blake-resume.pdf"
+          download="phill-blake-resume.pdf"
         >
           <Resume className={styles.resumeLogo} />
         </Link>
