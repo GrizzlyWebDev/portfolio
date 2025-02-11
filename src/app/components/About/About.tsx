@@ -9,12 +9,13 @@ import Dev from "../AboutBackgrounds/Dev/Dev";
 import SharedNav from "../SharedNav/SharedNav";
 import { usePathname } from "next/navigation";
 import Swapsicle from "../AboutBackgrounds/Swapsicle/Swapsicle";
+import Telos from "../AboutBackgrounds/Telos/Telos";
 
 const background = [
   {
     title: "My Background",
     description:
-      "I have a versatile background, from emergency services to cable construction and appliance repair. As a self-taught freelance web developer for over 3 years, I specialize in JavaScript, React, and blockchain enabled projects. My skills extend from traditional web development to client-side blockchain interaction.",
+      "Versatile Full Stack Engineer with a hands-on technical background, from fieldwork as an aerial lineman to troubleshooting complex systems as a repair technician. Transitioning into software development, I taught myself to build scalable, efficient systems and now contribute across the entire stack to deliver high-performance solutions.",
     component: <Background />,
   },
   {
@@ -40,17 +41,24 @@ const background = [
   },
   {
     title: "Freelance Developer",
-    years: "2021 - Present",
+    years: "2021 - 2023",
     description:
       "As a freelance Frontend and Blockchain Developer, I fused creativity in crafting user interfaces with expertise in blockchain technology. I navigated dynamic landscapes, honing technical prowess to deliver tailored solutions in web and decentralized systems.",
     component: <Dev />,
   },
   {
     title: "Software Engineer",
-    years: "2023 - Present",
+    years: "Dec 2023 - Aug 2023",
     description:
-      "Driving innovation as a Frontend Developer at Swapsicle, where I specialize in building dynamic user interfaces for our cutting-edge cryptocurrency exchange platform.",
+      "Driving innovation as a Frontend Developer at Swapsicle, where I specialized in building dynamic user interfaces for a cutting-edge cryptocurrency exchange platform.",
     component: <Swapsicle />,
+  },
+  {
+    title: "Full Stack Developer",
+    years: "Nov 2024 - Feb 2025",
+    description:
+      "As a Full Stack Developer at Telos Exchange, I built an admin panel for user management with editing, deleting, and role-based admin creation features. I also developed a notification API using NestJS, RabbitMQ, and AWS ECS. My tech stack included React/Next.js with TypeScript, Tailwind CSS, and SwaggerUI.",
+    component: <Telos />,
   },
 ];
 

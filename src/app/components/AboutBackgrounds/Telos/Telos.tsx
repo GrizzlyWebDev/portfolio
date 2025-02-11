@@ -8,7 +8,7 @@ import popUps from "@public/Dev/popUps.svg";
 
 import styles from "../Dev/Dev.module.scss";
 
-export default function Swapsicle() {
+export default function Teols() {
   return (
     <div className={styles.background}>
       <Image
