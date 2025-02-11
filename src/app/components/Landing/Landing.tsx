@@ -8,6 +8,7 @@ import portfolioPic from "@public/portfolioPic.png";
 import Ide from "../Ide/Ide";
 import Next from "../Icons/Next";
 import ReactLogo from "../Icons/ReactLogo";
+import C from "../Icons/C";
 import CSS from "../Icons/CSS";
 import SASS from "../Icons/SASS";
 import Tailwind from "../Icons/Tailwind";
@@ -18,6 +19,8 @@ import Link from "next/link";
 import LinkedIn from "../Icons/Linkedin";
 import Resume from "../Icons/Resume";
 import NavButton from "../NavButton/NavButton";
+import Node from "../Icons/Node";
+import Nest from "../Icons/Nest";
 
 export default function Landing() {
   const [visited, setVisited] = useState(false);
@@ -115,24 +118,17 @@ export default function Landing() {
         }
       >
         <div className={styles.overviewInner}>
-          <div className={styles.stats}>
-            <div className={styles.stat}>
-              <h3>3</h3>
-              <p>Years of Experience</p>
-            </div>
-            <div className={styles.stat}>
-              <h3>15+</h3>
-              <p>Projects Completed</p>
-            </div>
-          </div>
           <div className={styles.tech}>
-            <JS className={styles.jsLogo} />
-            <TS className={styles.tsLogo} />
-            <ReactLogo className={styles.reactLogo} />
-            <Next className={styles.nextLogo} />
-            <CSS className={styles.cssLogo} />
-            <SASS className={styles.sassLogo} />
-            <Tailwind className={styles.tailwindLogo} />
+            <JS className={styles.logo} />
+            <TS className={styles.logo} />
+            <Nest className={styles.logo} />
+            <Node className={styles.logo} />
+            <C className={styles.logo} />
+            <ReactLogo className={styles.logo} />
+            <Next className={styles.logo} />
+            <CSS className={styles.logo} />
+            <SASS className={styles.logo} />
+            <Tailwind className={styles.logo} />
           </div>
         </div>
       </div>
