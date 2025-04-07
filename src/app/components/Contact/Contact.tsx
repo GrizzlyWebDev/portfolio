@@ -6,20 +6,7 @@ import styles from "./Contact.module.scss";
 import { usePathname } from "next/navigation";
 import { sendTelegram } from "@/app/actions";
 import LoadingSpinner from "../Icons/LoadingSpinner";
-
-type message = {
-  name: string;
-  company: string;
-  email: string;
-  text: string;
-};
-
-type error = {
-  name: string;
-  company: string;
-  email: string;
-  text: string;
-};
+import { message, messageError } from "@/app/types";
 
 export default function Contact() {
   const pathname = usePathname();
@@ -29,7 +16,7 @@ export default function Contact() {
     email: "",
     text: "",
   } as message);
-  const [messageError, setMessageError] = useState({} as error);
+  const [messageError, setMessageError] = useState({} as messageError);
   const [messageSent, setMessageSent] = useState(false);
   const [messageFailed, setMessageFailed] = useState(false);
   const [messageLoading, setMessageLoading] = useState(false);
@@ -124,7 +111,7 @@ export default function Contact() {
       }, 2000);
     } else {
       setMessageFailed(true);
-      console.log(res)
+      console.log(res);
       setTimeout(() => {
         setMessageFailed(false);
       }, 2000);

@@ -1,16 +1,9 @@
 "use server";
 
-import { match } from "assert";
+import { message } from "./types";
 
 const BOT_TOKEN = process.env.NEXT_BOT_TOKEN;
 const USER_ID = process.env.NEXT_USER_ID;
-
-type message = {
-  name: string;
-  company: string;
-  email: string;
-  text: string;
-};
 
 export async function sendTelegram(message: message) {
   let text = `*New Message From Portfolio!*\n*Name: ${message.name}*\n*Company: ${message.company}*\n*Email: ${message.email}*\n*Message: ${message.text}*`;

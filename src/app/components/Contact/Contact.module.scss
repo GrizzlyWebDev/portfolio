@@ -35,7 +35,7 @@
   width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  min-height: 100vh;
+  min-height: 100dvh;
   padding: var(--padding);
 }
 
@@ -227,7 +227,7 @@
     padding: 10% 5% 0 5%;
 
     form {
-      height: 60vh;
+      height: 60dvh;
       width: 100%;
       padding: 1rem 1rem 0.5rem 1rem;
 

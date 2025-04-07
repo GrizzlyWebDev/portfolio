@@ -8,13 +8,14 @@ import portfolioPic from "@public/portfolioPic.png";
 import Ide from "../Ide/Ide";
 import Next from "../Icons/Next";
 import ReactLogo from "../Icons/ReactLogo";
-import C from "../Icons/C";
+import Angular from "../Icons/Angular";
 import CSS from "../Icons/CSS";
-import SASS from "../Icons/SASS";
+import Spring from "../Icons/Spring";
 import Tailwind from "../Icons/Tailwind";
 import JS from "../Icons/JS";
 import TS from "../Icons/TS";
 import Github from "../Icons/Github";
+import Java from "../Icons/Java";
 import Link from "next/link";
 import LinkedIn from "../Icons/Linkedin";
 import Resume from "../Icons/Resume";
@@ -123,11 +124,12 @@ export default function Landing() {
             <TS className={styles.logo} />
             <Nest className={styles.logo} />
             <Node className={styles.logo} />
-            <C className={styles.logo} />
+            <Spring className={styles.logo} />
+            <Java className={styles.logo} />
             <ReactLogo className={styles.logo} />
+            <Angular className={styles.logo} />
             <Next className={styles.logo} />
             <CSS className={styles.logo} />
-            <SASS className={styles.logo} />
             <Tailwind className={styles.logo} />
           </div>
         </div>

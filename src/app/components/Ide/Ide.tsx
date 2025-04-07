@@ -28,7 +28,7 @@ export default function Ide() {
       {mounted ? (
         <div className={styles.ideContainer}>
           <div className={styles.fileName}>
-            <h2>phillBlake.tsx</h2>
+            <h2>phillBlake.codes</h2>
           </div>
           <div className={styles.ideButtons}>
             <div className={styles.ideButton} />

@@ -19,32 +19,11 @@ const background = [
     component: <Background />,
   },
   {
-    title: "Emergency Roadside Driver",
-    years: "2018 - 2019",
+    title: "Full Stack Developer",
+    years: "Nov 2024 - Feb 2025",
     description:
-      "Excelled in managing high-stakes emergencies, swiftly diagnosing issues, and assisting customers under pressure. Conducted on-the-spot battery replacements, tire changes, and fuel deliveries on busy interstates, showcasing adaptability and quick problem-solving skills.",
-    component: <AAA />,
-  },
-  {
-    title: "Aerial Fiber Optic Lineman",
-    years: "2019 - 2020",
-    description:
-      "I operated as an Aerial Lineman, specializing in the intricate work of installing and maintaining fiber optic lines. Climbing telephone poles, maneuvering bucket trucks, and executing precise installations in various environments were second nature. I faced challenges head-on, from clearing trees off lines to installing underground cables, showcasing my meticulous approach to complex tasks.",
-    component: <LineWork />,
-  },
-  {
-    title: "Appliance Repair Technician",
-    years: "2020 - 2021",
-    description:
-      "In my role as an Appliance Repair Technician at Sears Home Services, I delved into diagnosing and repairing a diverse range of equipment. I honed expertise in hands-on troubleshooting, meticulously executing precise part replacements to ensure the effective resolution of appliance issues.",
-    component: <Appliance />,
-  },
-  {
-    title: "Freelance Developer",
-    years: "2021 - 2023",
-    description:
-      "As a freelance Frontend and Blockchain Developer, I fused creativity in crafting user interfaces with expertise in blockchain technology. I navigated dynamic landscapes, honing technical prowess to deliver tailored solutions in web and decentralized systems.",
-    component: <Dev />,
+      "As a Full Stack Developer at Telos Exchange, I built an admin panel for user management with editing, deleting, and role-based admin creation features. I also developed a notification API using NestJS, RabbitMQ, and AWS ECS. My tech stack included React/Next.js with TypeScript, Tailwind CSS, and SwaggerUI.",
+    component: <Telos />,
   },
   {
     title: "Software Engineer",
@@ -54,11 +33,32 @@ const background = [
     component: <Swapsicle />,
   },
   {
-    title: "Full Stack Developer",
-    years: "Nov 2024 - Feb 2025",
+    title: "Freelance Developer",
+    years: "2021 - 2023",
     description:
-      "As a Full Stack Developer at Telos Exchange, I built an admin panel for user management with editing, deleting, and role-based admin creation features. I also developed a notification API using NestJS, RabbitMQ, and AWS ECS. My tech stack included React/Next.js with TypeScript, Tailwind CSS, and SwaggerUI.",
-    component: <Telos />,
+      "As a freelance Frontend and Blockchain Developer, I fused creativity in crafting user interfaces with expertise in blockchain technology. I navigated dynamic landscapes, honing technical prowess to deliver tailored solutions in web and decentralized systems.",
+    component: <Dev />,
+  },
+  {
+    title: "Appliance Repair Technician",
+    years: "2020 - 2021",
+    description:
+      "In my role as an Appliance Repair Technician at Sears Home Services, I delved into diagnosing and repairing a diverse range of equipment. I honed expertise in hands-on troubleshooting, meticulously executing precise part replacements to ensure the effective resolution of appliance issues.",
+    component: <Appliance />,
+  },
+  {
+    title: "Aerial Fiber Optic Lineman",
+    years: "2019 - 2020",
+    description:
+      "I operated as an Aerial Lineman, specializing in the intricate work of installing and maintaining fiber optic lines. Climbing telephone poles, maneuvering bucket trucks, and executing precise installations in various environments were second nature. I faced challenges head-on, from clearing trees off lines to installing underground cables, showcasing my meticulous approach to complex tasks.",
+    component: <LineWork />,
+  },
+  {
+    title: "Emergency Roadside Driver",
+    years: "2018 - 2019",
+    description:
+      "Excelled in managing high-stakes emergencies, swiftly diagnosing issues, and assisting customers under pressure. Conducted on-the-spot battery replacements, tire changes, and fuel deliveries on busy interstates, showcasing adaptability and quick problem-solving skills.",
+    component: <AAA />,
   },
 ];
 

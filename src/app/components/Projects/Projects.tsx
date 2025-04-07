@@ -1,5 +1,4 @@
 "use client";
-import React from "react";
 import styles from "./Projects.module.scss";
 import SharedNav from "../SharedNav/SharedNav";
 import { usePathname } from "next/navigation";
@@ -9,7 +8,7 @@ import quirkncodonuts from "@public/Projects/Quirknco.png";
 import metaExpo from "@public/Projects/MetaverseExpo.png";
 import rev3al from "@public/Projects/REV3AL.png";
 import drivenX from "@public/Projects/drivenX.png";
-import nitro from "@public/Projects/nitrodome.jpg"
+import nitro from "@public/Projects/nitrodome.jpg";
 import Image from "next/image";
 import Link from "next/link";
 

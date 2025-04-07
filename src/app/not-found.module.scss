@@ -61,7 +61,7 @@
   width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  min-height: 100vh;
+  min-height: 100dvh;
   padding: var(--padding);
 }
 .gridRight {
@@ -122,7 +122,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 62vh;
+    height: 62dvh;
     width: 100%;
     padding: 10% 0 0 0;
   }
