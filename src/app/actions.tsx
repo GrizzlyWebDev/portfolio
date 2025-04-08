@@ -72,7 +72,6 @@ export async function fetchGithubRepos(): Promise<GithubRepoResponseObject[]> {
         },
       }
     );
-    console.log(await res.json());
     return await res.json();
   } catch (error) {
     console.log(error);
