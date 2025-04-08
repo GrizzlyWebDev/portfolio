@@ -51,7 +51,7 @@ const projects = [
     description:
       "A website for a Metaverse Expo that took place in 2022 that was hosted by TCG World.",
     tools: ["React.js", "JavaScript", "Tailwind"],
-    link: "https://themetaverseexpo.io/",
+    link: "https://grizz-expo.netlify.app/",
   },
   {
     title: "REV3AL Dashboard",
@@ -60,14 +60,6 @@ const projects = [
       "A dashboard for a blockchain security company that allows users to view stats on the REV3AL token, stake their tokens, farm, and more.",
     tools: ["React.js", "JavaScript", "wagmi.sh", "ethers.js", "SCSS"],
     link: "https://rev3al-dapp.vercel.app/",
-  },
-  {
-    title: "DrivenX Dashboard",
-    img: drivenX,
-    description:
-      "A dashboard for holders of the DrivenX token, that displays the stats of the token, developer wallet transactions, and more.",
-    tools: ["Vue.js", "JavaScript", "SCSS"],
-    link: "https://drivenx-dashboard.netlify.app/",
   },
 ];
 

@@ -1,11 +1,18 @@
 "use server";
 
-import { message } from "./types";
+import {
+  GithubInfoResponseObject,
+  GithubRepoResponseObject,
+  message,
+} from "./types";
 
 const BOT_TOKEN = process.env.NEXT_BOT_TOKEN;
 const USER_ID = process.env.NEXT_USER_ID;
 
-export async function sendTelegram(message: message) {
+export async function sendTelegram(message: message): Promise<{
+  ok: boolean;
+  message: string;
+}> {
   let text = `*New Message From Portfolio!*\n*Name: ${message.name}*\n*Company: ${message.company}*\n*Email: ${message.email}*\n*Message: ${message.text}*`;
   text = text.replace(/[$^!.+?{}()[\]\\|]/g, (match) => `\\${match}`);
   try {
@@ -32,5 +39,43 @@ export async function sendTelegram(message: message) {
     }
   } catch (error) {
     return { ok: false, message: "Message failed to send" };
+  }
+}
+
+export async function fetchGithubInfo(): Promise<GithubInfoResponseObject> {
+  try {
+    const res = await fetch("https://api.github.com/users/GrizzlyWebDev", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    const data = await res.json();
+    return {
+      bio: data.bio,
+      img: data.avatar_url,
+    };
+  } catch (error) {
+    console.log(error);
+    return { bio: "", img: "" };
+  }
+}
+
+export async function fetchGithubRepos(): Promise<GithubRepoResponseObject[]> {
+  try {
+    const res = await fetch(
+      "https://api.github.com/users/GrizzlyWebDev/repos",
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    console.log(await res.json());
+    return await res.json();
+  } catch (error) {
+    console.log(error);
+    return [];
   }
 }
