@@ -12,11 +12,6 @@ export type messageError = {
   text: string;
 };
 
-export type GithubInfoResponseObject = {
-  bio: string;
-  img: string;
-};
-
 export type GithubRepoResponseObject = {
   id: number;
   node_id: string;

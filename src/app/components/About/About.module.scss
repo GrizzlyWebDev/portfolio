@@ -61,8 +61,6 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
   height: 100%;
   width: 100%;
   padding-top: 5%;
@@ -70,23 +68,24 @@
 
 .nextButton {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  height: 650px;
-  width: 650px;
-  cursor: pointer;
+  top: -25px;
+  right: 25px;
   background-color: transparent;
-  border-radius: 100%;
-  border-width: 15px;
-  border-color: transparent #7e1db6 transparent transparent;
-  border-style: solid;
+  border: none;
+  cursor: pointer;
   transition: all 0.3s ease-in-out;
-  z-index: 1;
-  animation: rotate 3s ease, move 2s ease-in-out 3s infinite alternate;
+  z-index: 10;
 
-  &:hover {
-    border-color: transparent #9c23e2 transparent transparent;
-    animation-play-state: paused;
+  svg {
+    fill: #ffffff;
+    height: 50px;
+    width: 50px;
+    transition: all 0.3s ease-in-out;
+  }
+
+  &:hover svg {
+    fill: "#7e1db6";
+    animation: bounceRight 1s infinite;
     transition: all 0.3s ease-in-out;
   }
 }
@@ -121,7 +120,7 @@
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
-  z-index: 1;
+  z-index: 2;
   box-shadow: 2px 2px 30px 2px rgba(0, 0, 0, 0.178);
 
   & h2 {
@@ -161,55 +160,6 @@
   display: none;
 }
 
-@media screen and (min-width: 1600px) {
-  .nextButton {
-    height: 860px;
-    width: 860px;
-  }
-
-  .aboutSphereUpper {
-    height: 400px;
-    width: 800px;
-    border-radius: 650px 650px 0 0;
-  }
-
-  .aboutSphereLower {
-    height: 400px;
-    width: 800px;
-    border-radius: 0 0 650px 650px;
-    top: 50%;
-    left: 50%;
-    translate: -50% 0;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-
-    & h2 {
-      font-size: 1.8rem;
-      line-height: 1.8rem;
-      font-weight: 600;
-    }
-
-    & h4 {
-      font-size: 1.6rem;
-      line-height: 1.6rem;
-      font-weight: 200;
-    }
-
-    & p {
-      font-size: 1.2rem;
-      line-height: 1.4rem;
-      font-weight: 400;
-    }
-  }
-
-  .details {
-    padding-bottom: 1rem;
-    margin-bottom: 1rem;
-  }
-}
-
 @media screen and (max-width: 1285px) {
   .aboutContainer {
     grid-template-columns: 0.8fr 1fr;
@@ -225,11 +175,6 @@
     height: 275px;
     width: 550px;
     border-radius: 550px 550px 0 0;
-  }
-
-  .nextButton {
-    height: 600px;
-    width: 600px;
   }
 }
 

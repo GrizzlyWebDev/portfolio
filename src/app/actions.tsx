@@ -1,10 +1,6 @@
 "use server";
 
-import {
-  GithubInfoResponseObject,
-  GithubRepoResponseObject,
-  message,
-} from "./types";
+import { GithubRepoResponseObject, message } from "./types";
 
 const BOT_TOKEN = process.env.NEXT_BOT_TOKEN;
 const USER_ID = process.env.NEXT_USER_ID;
@@ -39,25 +35,6 @@ export async function sendTelegram(message: message): Promise<{
     }
   } catch (error) {
     return { ok: false, message: "Message failed to send" };
-  }
-}
-
-export async function fetchGithubInfo(): Promise<GithubInfoResponseObject> {
-  try {
-    const res = await fetch("https://api.github.com/users/GrizzlyWebDev", {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    const data = await res.json();
-    return {
-      bio: data.bio,
-      img: data.avatar_url,
-    };
-  } catch (error) {
-    console.log(error);
-    return { bio: "", img: "" };
   }
 }
 

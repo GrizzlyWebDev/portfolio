@@ -10,14 +10,8 @@ import SharedNav from "../SharedNav/SharedNav";
 import { usePathname } from "next/navigation";
 import Swapsicle from "../AboutBackgrounds/Swapsicle/Swapsicle";
 import Telos from "../AboutBackgrounds/Telos/Telos";
-import Image from "next/image";
-import { GithubInfoResponseObject } from "@/app/types";
 
-export default function About({
-  ghInfo,
-}: {
-  ghInfo: GithubInfoResponseObject;
-}) {
+export default function About() {
   const pathname = usePathname();
   const [step, setStep] = useState(0);
   const [animate, setAnimate] = useState(false);
@@ -71,19 +65,6 @@ export default function About({
         "Excelled in managing high-stakes emergencies, swiftly diagnosing issues, and assisting customers under pressure. Conducted on-the-spot battery replacements, tire changes, and fuel deliveries on busy interstates, showcasing adaptability and quick problem-solving skills.",
       component: <AAA />,
     },
-    {
-      title: "Github",
-      description: ghInfo.bio,
-      component: (
-        <Image
-          className={styles.ghImg}
-          src={ghInfo.img}
-          alt="the website owners github profile picture"
-          height={250}
-          width={250}
-        />
-      ),
-    },
   ];
 
   const handleNext = () => {
@@ -103,11 +84,20 @@ export default function About({
     <section className={styles.aboutContainer}>
       <SharedNav pathname={pathname} />
       <div className={styles.gridRight}>
-        <button className={styles.nextButton} onClick={handleNext}></button>
         <div className={styles.aboutSphereUpper}>
           {background[step].component}
         </div>
         <div className={styles.aboutSphereLower}>
+          <button className={styles.nextButton} onClick={handleNext}>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+            >
+              <path d="M7.33 24l-2.83-2.829 9.339-9.175-9.339-9.167 2.83-2.829 12.17 11.996z" />
+            </svg>
+          </button>
           <div
             className={!animate ? styles.details : styles.details + " animate"}
           >
