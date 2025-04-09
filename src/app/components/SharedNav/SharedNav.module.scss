@@ -47,13 +47,13 @@
     height: 50px;
     width: 50px;
     fill: var(--primary-color);
-    transition: all 0.3s ease-in-out;
+    transition: fill 0.3s ease-in-out;
   }
 
   &:hover {
     svg {
       fill: var(--secondary-color);
-      transition: all 0.3s ease-in-out;
+      transition: fill 0.3s ease-in-out;
     }
   }
 }
@@ -112,13 +112,77 @@
       height: 50px;
       width: 50px;
       fill: var(--primary-color);
-      transition: all 0.3s ease-in-out;
+      transition: fill 0.3s ease-in-out;
     }
 
     &:hover {
       svg {
         fill: var(--secondary-color);
-        transition: all 0.3s ease-in-out;
+        transition: fill 0.3s ease-in-out;
+      }
+    }
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+}
+
+@media screen and (max-height: 600px) {
+  .gridLeft {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    height: 22dvh;
+    width: 100%;
+    padding: 5% 5% 0 5%;
+
+    & a {
+      line-height: 2rem;
+      font-weight: 900;
+      font-size: 2rem;
+      margin-bottom: 0;
+      width: 100%;
+    }
+  }
+
+  .navLink {
+    &:hover {
+      color: var(--primary-color);
+    }
+  }
+
+  .nav {
+    height: 100%;
+    justify-content: space-between;
+  }
+
+  .links {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: max-content;
+    height: 100%;
+    align-items: center;
+    margin-top: 0;
+  }
+
+  .link {
+    margin-right: 0;
+    margin-bottom: 1rem;
+
+    svg {
+      height: 20px;
+      width: 20px;
+      fill: var(--primary-color);
+      transition: fill 0.3s ease-in-out;
+    }
+
+    &:hover {
+      svg {
+        fill: var(--secondary-color);
+        transition: fill 0.3s ease-in-out;
       }
     }
 

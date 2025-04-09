@@ -30,3 +30,18 @@
     }
   }
 }
+
+@media screen and (max-height: 600px) {
+  .navButtonWrapper {
+    & a {
+      & h2 {
+        font-size: 2rem;
+        line-height: 2rem;
+        margin-bottom: 0rem;
+      }
+      &:hover {
+        color: var(--primary-color);
+      }
+    }
+  }
+}

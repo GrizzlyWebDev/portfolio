@@ -73,20 +73,20 @@
   background-color: transparent;
   border: none;
   cursor: pointer;
-  transition: all 0.3s ease-in-out;
   z-index: 10;
 
   svg {
     fill: #ffffff;
     height: 50px;
     width: 50px;
-    transition: all 0.3s ease-in-out;
+    animation: bounceRight 2s ease-in-out infinite;
+    transition: fill 0.3s ease-in-out;
   }
 
   &:hover svg {
     fill: "#7e1db6";
-    animation: bounceRight 1s infinite;
-    transition: all 0.3s ease-in-out;
+    animation: none;
+    transition: fill 0.3s ease-in-out;
   }
 }
 
@@ -191,6 +191,7 @@
     justify-content: flex-start;
     align-items: center;
     padding: 0;
+    gap: 0;
   }
 
   .gridRight {
@@ -304,4 +305,69 @@
   object-position: center 30%;
   height: 100%;
   width: 100%;
+}
+
+@media screen and (max-height: 600px) {
+  .gridRight {
+    margin-top: 10px;
+  }
+  .aboutSphereUpper {
+    position: unset;
+    top: 0;
+    left: 0;
+    translate: 0 0;
+    height: 200px;
+    width: 90dvw;
+    bottom: 60%;
+    border-radius: 400px 400px 0 0;
+  }
+
+  .aboutSphereLower {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-between;
+    position: unset;
+    top: 0;
+    left: 0;
+    translate: 0 0;
+    min-height: 200px;
+    height: max-content;
+    width: 90dvw;
+    top: 40%;
+    border-radius: 0 0 20px 20px;
+    padding: 0.5rem 1rem;
+
+    p {
+      font-size: 12px;
+    }
+
+    h2 {
+      font-size: 1.2rem;
+      line-height: 1.8rem;
+      font-weight: 600;
+    }
+  }
+
+  .nextButtonMobile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background-color: var(--secondary-color);
+    width: 100%;
+    border-radius: 10px;
+    border: none;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--primary-color);
+
+    & svg {
+      fill: var(--primary-color);
+      height: 12px;
+      width: 12px;
+      margin-left: 10px;
+      animation: bounceRight 2s ease-in-out infinite;
+    }
+  }
 }
