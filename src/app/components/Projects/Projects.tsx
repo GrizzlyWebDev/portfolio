@@ -16,7 +16,7 @@ const projects = [
   {
     title: "Not so trivial",
     img: notSoTrivial,
-    description: "",
+    description: "A browser-based trivia game built with Angular that fetches questions and categories from a public API. Features include background music and sound effects powered by Howler.js, local storage for leaderboard and user settings, and a responsive UI designed for smooth user experience.",
     tools: ["angular.js", "TypeScript", "Github Issues", "howler.js"],
     link: "https://github.com/GrizzlyWebDev/not-so-trivial",
   },
