@@ -6,13 +6,20 @@ import quirkies from "@public/Projects/quirkies.png";
 import swapsicle from "@public/Projects/swapsicle.png";
 import quirkncodonuts from "@public/Projects/Quirknco.png";
 import metaExpo from "@public/Projects/MetaverseExpo.png";
+import notSoTrivial from "@public/Projects/not-so-trivial.png";
 import rev3al from "@public/Projects/REV3AL.png";
-import drivenX from "@public/Projects/drivenX.png";
 import nitro from "@public/Projects/nitrodome.jpg";
 import Image from "next/image";
 import Link from "next/link";
 
 const projects = [
+  {
+    title: "Not so trivial",
+    img: notSoTrivial,
+    description: "",
+    tools: ["angular.js", "TypeScript", "Github Issues", "howler.js"],
+    link: "https://github.com/GrizzlyWebDev/not-so-trivial",
+  },
   {
     title: "Swapsicle",
     img: swapsicle,
@@ -71,12 +78,16 @@ export default function Projects() {
       <div className={styles.gridRight}>
         <span className={styles.swipe}>
           <span className={styles.path} />
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24">
             <path d="M4.021 10.688c1.208.172 2.51 1.312 2.979 1.781v-10.514c0-1.08.92-1.955 2-1.955s2 .875 2 1.955v6.058c0 .784.814.885.919.103.216-1.604 2.519-1.817 2.693.399.043.546.726.655.866.027.326-1.444 2.501-1.458 2.758.758.066.579.796.696.848.034.051-.67.281-.934.607-.934 1.098 0 2.309 2.019 2.309 4.41 0 4.295-3 4.306-3 11.19h-10c-.332-3.942-3.462-7.431-6.271-10.241-.488-.488-.729-1.052-.729-1.564 0-.93.759-1.688 2.021-1.507z" />
           </svg>
         </span>
         {projects.map((project, index) => (
-          <div className={styles.project} key={index}>
+          <div
+            className={styles.project}
+            key={index}>
             <Image
               className={styles.projectImg}
               src={project.img}
@@ -88,8 +99,7 @@ export default function Projects() {
               target="_blank"
               rel="noopener noreferrer"
               key={index}
-              className={styles.projectInfo}
-            >
+              className={styles.projectInfo}>
               <h2>{project.title}</h2>
               <p>{project.description}</p>
               <div className={styles.tools}>
@@ -103,8 +113,7 @@ export default function Projects() {
               className={styles.link}
               href={project.link}
               target="_blank"
-              rel="noopener noreferrer"
-            >
+              rel="noopener noreferrer">
               Visit Website
             </Link>
           </div>
